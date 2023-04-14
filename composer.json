@@ -1,0 +1,17 @@
+{
+    "name": "raul/automotor_mvc",
+    "description": "Proyecto DAW MVC",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Raul\\AutomotorMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "racesur",
+            "email": "cesurraul@gmail.com"
+        }
+    ],
+    "require": {}
+}
