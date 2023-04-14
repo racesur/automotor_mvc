@@ -1,17 +1,19 @@
 {
-    "name": "raul/automotor_mvc",
-    "description": "Proyecto DAW MVC",
-    "type": "project",
-    "autoload": {
-        "psr-4": {
-            "Raul\\AutomotorMvc\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "racesur",
-            "email": "cesurraul@gmail.com"
-        }
-    ],
-    "require": {}
+	"name": "raul/automotor_mvc",
+	"description": "Proyecto DAW MVC",
+	"type": "project",
+	"autoload": {
+		"psr-4": {
+			"Model\\": "./models",
+			"MVC\\": "./",
+			"Controllers\\": "./controllers"
+		}
+	},
+	"authors": [
+		{
+			"name": "raulantelo",
+			"email": "cesurraul@gmail.com"
+		}
+	],
+	"require": {}
 }
