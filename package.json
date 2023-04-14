@@ -1,0 +1,26 @@
+{
+  "name": "automotor_mvc",
+  "version": "1.0.0",
+  "description": "Proyecto DAW MVC",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/racesur/automotor_mvc.git"
+  },
+  "keywords": [
+    "PHP",
+    "SASS",
+    "CSS",
+    "HTML",
+    "JAVASCRIPT"
+  ],
+  "author": "raul antelo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/racesur/automotor_mvc/issues"
+  },
+  "homepage": "https://github.com/racesur/automotor_mvc#readme"
+}
