@@ -1,0 +1,100 @@
+.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        align-items: flex-end;
+    }
+
+    // Estilos para el botón del Modo Oscuro
+    .dark-mode-boton {
+        width: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        filter: invert(100%); //Como el SVG es negro, invertimos su color a blanco para q se vea en las páginas donde no hay foto (inicio)
+
+        &:hover {
+            cursor: pointer; //cambiamos el curso para que el usuario sepa que se puede pulsar
+        }
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+.navegacion {
+
+    visibility: hidden; // Ocultamos la barra de navegación
+    opacity: 0;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear;
+
+    // Hacemos visible la barra de navegación cuando la pantalla sea mayor a la tablet
+    @include tablet {
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    a {
+        // color: $blanco;
+        color: $amarillo;
+        text-decoration: none;
+        font-size: 2.5rem;
+        // font-size: 2.2rem;
+        display: block;
+        text-align: center;
+
+        @include tablet {
+            margin-right: 2rem;
+            font-size: 1.8rem;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+
+        &:hover {
+            color: $azul;
+        }
+    }
+}
+
+
+/** Menu de hamburguesa **/
+.mobile-menu {
+    @include tablet {
+        display: none;
+    }
+
+    img {
+        width: 5rem;
+    }
+
+    .mobile-boton {
+        filter: invert(100%); //Como el SVG es negro, invertimos su color a blanco
+    }
+}
+
+// Clase para mostrar la barra de navegación
+.mostrar {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}

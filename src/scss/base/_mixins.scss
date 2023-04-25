@@ -1,0 +1,44 @@
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: #{$telefono}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
+// Botones del sitio web con 2 parámetros, color y display
+@mixin boton($bgColor, $display ) {
+    background-color: $bgColor;
+    color: $blanco;
+    font-weight: $bold;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    text-align: center;
+    margin-top: calc($separacion / 2) 0;
+    display: $display;
+    border: none;
+    margin-bottom: 1rem;
+
+    // Al pasar por encima ponemos que muestre una mano y se oscurezca
+    &:hover {
+        background-color: darken($bgColor, 5);
+        cursor: pointer;
+    }
+}
