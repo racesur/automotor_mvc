@@ -8,6 +8,15 @@
     background-color: lighten($gris, 5);
     border: 1px solid darken($gris, 20);
     margin-bottom: 2rem;
+    // Para efecto hover
+    transition-property: transform;
+    transition-duration: 300ms;
+
+    //Efecto zoom
+    &:hover {
+        transform: scale(1.005);
+        box-shadow: 0 0 25px lighten($grisOscuro, 30);
+    }
 
     .contenido-anuncio {
         padding: 2rem;

@@ -37,7 +37,7 @@ function css() {
             .pipe(sass()) // Compila el archivo a CSS
             .pipe(postcss([autoprefixer(), cssnano()]))
             .pipe(sourcemaps.write("."))
-            .pipe(dest("./public/build/css")) // Almacena en el disco duro
+            .pipe(dest("./public/build/css")) // Almacena el archivo compilado
     );
 }
 
@@ -62,16 +62,15 @@ function versionAvif() {
         .pipe(notify({ message: "Imagen Completada" }));
 }
 
-// Creamos un único fichero de JS uniendo los dos que tenemos
-// function javascript() {
-//     return src(paths.js)
-//         .pipe(sourcemaps.init())
-//         .pipe(concat("bundle.js")) // Añadimos el nombre al fichero final
-//         .pipe(terser())
-//         .pipe(sourcemaps.write("."))
-//         .pipe(rename({ suffix: ".min" })) //Renombramos el fichero añadiendo min
-//         .pipe(dest("./public/build/js"));
-// }
+function javascript() {
+    return src(paths.js)
+        .pipe(sourcemaps.init())
+        // .pipe(concat("bundle.js")) // Añadimos el nombre al fichero final
+        .pipe(terser())
+        .pipe(sourcemaps.write("."))
+        // .pipe(rename({ suffix: ".min" })) //Renombramos el fichero añadiendo min
+        .pipe(dest("./public/build/js"));
+}
 
 function javascript() {
     return src(paths.js)

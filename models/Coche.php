@@ -36,4 +36,49 @@ class Coche extends ActiveRecord
         $this->vendedorId = $args['vendedorId'] ?? '';
         $this->creado = date('Y/m/d') ?? '';
     }
+
+    public function validar()
+    {
+        if (!$this->titulo) {
+            self::$errores[] = "debes añadir un título"; //Va colocando la información (el valor) al final del array llamado $errores
+        }
+
+        if (!$this->marca) {
+            self::$errores[] = "debes añadir una marca";
+        }
+
+        if (!$this->modelo) {
+            self::$errores[] = "debes añadir un modelo";
+        }
+
+        if (!$this->precio) {
+            self::$errores[] = "debes añadir un precio";
+        }
+
+        if (strlen($this->descripcion) < 50) {
+            self::$errores[] = "la descripción es obligatoria y debe tener al menos 50 caracteres";
+        }
+
+        if (!$this->puertas) {
+            self::$errores[] = "debes añadir el número de puertas";
+        }
+
+        if (!$this->plazas) {
+            self::$errores[] = "debes añadir el número de plazas";
+        }
+
+        if (!$this->potencia) {
+            self::$errores[] = "debes añadir la potencia";
+        }
+
+        if (!$this->vendedorId) {
+            self::$errores[] = "debes elegir un vendedor";
+        }
+
+        if (!$this->imagen) {
+            self::$errores[] = "la imagen es obligatoria";
+        }
+
+        return self::$errores;
+    }
 }

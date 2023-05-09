@@ -38,26 +38,31 @@ if (!isset($inicio)) {
                 <div class="mobile-menu">
                     <img class="mobile-boton" src="../build/img/barras.svg" alt="icono menu responsive">
                 </div>
+                <!-- AÑADO CLASE PARA BARRA FIJA -->
+                <div class="header2 barra">
+                    <img class="logos" src="../build/img/logos1.svg" alt="logo">
+                    <div class="derecha">
+                        <img class="dark-mode-boton" src="../build/img/dark-mode.svg">
+                        <nav class="navegacion">
+                            <a href="/">Inicio</a>
+                            <a href="/servicios">Servicios</a>
+                            <a href="/coches">Galería</a>
+                            <a href="/nosotros">Nosotros</a>
+                            <a href="/blog">Blog</a>
+                            <a href="/contacto">Contacto</a>
+                            <?php if (!$auth) : ?>
+                            <a href="/login">Iniciar Sesión</a>
+                            <?php endif; ?>
+                            <?php if ($auth) : ?>
+                            <a href="/admin">Panel</a>
+                            <a href="/logout">Cerrar Sesión</a>
+                            <?php endif; ?>
+                        </nav>
+                    </div>
 
-                <div class="derecha">
-                    <img class="dark-mode-boton" src="../build/img/dark-mode.svg">
-                    <nav class="navegacion">
-                        <a href="/coches">Coches</a>
-                        <a href="/nosotros">Nosotros</a>
-                        <a href="/blog">Blog</a>
-                        <a href="/contacto">Contacto</a>
-                        <!-- <a href="/login">Iniciar Sesión</a> -->
-                        <?php if (!$auth) : ?>
-                        <a href="/login">Iniciar Sesión</a>
-                        <?php endif; ?>
-                        <?php if ($auth) : ?>
-                        <a href="/logout">Cerrar Sesión</a>
-                        <?php endif; ?>
-                    </nav>
                 </div>
-
+                <!--.barra-->
             </div>
-            <!--.barra-->
             <?php if ($inicio) { ?>
             <h1>Ven a AutoMotor y experimenta la emoción de conducir</h1>
             <?php } ?>
@@ -71,7 +76,9 @@ if (!isset($inicio)) {
         <footer class="footer seccion">
             <div class="contenedor contenedor-footer">
                 <nav class="navegacion">
-                    <a href="/coches">Coches</a>
+                    <a href="/">Inicio</a>
+                    <a href="/servicios">Servicios</a>
+                    <a href="/coches">Galería</a>
                     <a href="/nosotros">Nosotros</a>
                     <a href="/blog">Blog</a>
                     <a href="/contacto">Contacto</a>
@@ -81,6 +88,21 @@ if (!isset($inicio)) {
             <p class="copyright">Todos los derechos Reservados. AutoMotor
                 <?php echo date('Y'); ?> &copy;
             </p>
+            <!-- REDES SOCIALES -->
+            <p class="copyright"> <span>Siguenos también en las Redes Sociales:</span></p>
+            <p class="informacion-metas-footer contenedor">
+                <span> <a href="www.facebook.com"><img class="icono-contacto" src="build/img/facebook.png"
+                            alt="icono Facebook"> Facebook:
+                        @automotor</a>
+                    <a href="www.instagram.com"><img class="icono-contacto" src="build/img/instagram.png"
+                            alt="icono Instagram">Instagram:
+                        @automotor_oficial</a>
+                    <a href="www.twitter.com"><img class="icono-contacto" src="build/img/twitter.png"
+                            alt="icono Twitter">
+                        Twitter: @automotor_es</a>
+                </span>
+            </p>
+            <!-- FIN REDES SOCIALES -->
         </footer>
         <script src="../build/js/app.js"></script>
         <script src="../build/js/modernizr.js"></script>

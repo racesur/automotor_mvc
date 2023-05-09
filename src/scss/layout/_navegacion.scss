@@ -11,12 +11,17 @@
     .dark-mode-boton {
         width: 3rem;
         margin-top: 3rem;
-        margin-bottom: 2rem;
-        filter: invert(100%); //Como el SVG es negro, invertimos su color a blanco para q se vea en las páginas donde no hay foto (inicio)
+        margin-bottom: 2.5rem;
+        filter: invert(100%); //Como el SVG es negro, invertimos su color a blanco para q se vea en las páginas donde no hay foto de inicio
 
         &:hover {
             cursor: pointer; //cambiamos el curso para que el usuario sepa que se puede pulsar
+            box-shadow: 0 0 25px lighten($grisOscuro, 30);
+            border-radius: 2rem;
+
         }
+
+        // filter: invert(100%); //Como el SVG es negro, invertimos su color a blanco para q se vea en las páginas donde no hay foto de inicio
 
         @include tablet {
             margin-top: 0;
@@ -72,6 +77,9 @@
 
         &:hover {
             color: $azul;
+            border-radius: 2rem;
+            // box-shadow: 0 0 25px lighten(#ffee10, 1);
+            box-shadow: 0 0 25px lighten($azul, 30);
         }
     }
 }

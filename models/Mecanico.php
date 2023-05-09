@@ -23,4 +23,30 @@ class Mecanico extends ActiveRecord
         $this->telefono = $args['telefono'] ?? '';
         $this->imagen = $args['imagen'] ?? '';
     }
+
+    public function validar() //hereda el metodo
+    {
+        if (!$this->nombre) {
+            self::$errores[] = "debes añadir un nombre";
+        }
+        if (!$this->apellido) {
+            self::$errores[] = "debes añadir un apellido";
+        }
+        if (!$this->puesto) {
+            self::$errores[] = "debes añadir un puesto";
+        }
+        if (!$this->telefono) {
+            self::$errores[] = "debes añadir un teléfono";
+        }
+
+        if (!preg_match('/[0-9]{9}/', $this->telefono)) { //Ejecuta un código de una expresion regular o patron dentro de un taxto. Con / le decimos que el tmño sea fijo, y con 0-9 que los valores q acepta son de 0 a 9, y con las llaves le indicamos el tamaño del numero y el segundo argumento que revise el contenido del campo telefono
+            self::$errores[] = "debes añadir un teléfono válido";
+        }
+
+        if (!$this->imagen) {
+            self::$errores[] = "la imagen es obligatoria";
+        }
+
+        return self::$errores;
+    }
 }

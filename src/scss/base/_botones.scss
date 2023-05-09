@@ -1,32 +1,80 @@
+.boton-rojo {
+    @include boton($amarillo, inline-block);
+    transition-property: background-color;
+    transition-duration: .5s;
+
+    &:hover {
+        box-shadow: 0 0 25px lighten($azul, 30);
+    }
+}
+
+.boton-azul-block {
+    @include boton($azul, block);
+    transition-property: background-color;
+    transition-duration: .5s;
+
+    &:hover {
+        box-shadow: 0 0 25px lighten($azul, 30);
+    }
+}
+
+.boton-azul {
+    @include boton($azul, inline-block);
+    transition-property: background-color;
+    transition-duration: .5s;
+
+    &:hover {
+        box-shadow: 0 0 25px lighten($azul, 30);
+    }
+}
+
 .boton-amarillo {
     @include boton($amarillo, inline-block);
+    transition-property: background-color;
+    transition-duration: .5s;
+
+    &:hover {
+        box-shadow: 0 0 25px lighten($azul, 30);
+    }
 }
 
 .boton-amarillo-block {
     @include boton($amarillo, block);
-}
+    transition-property: background-color;
+    transition-duration: .5s;
 
-.boton-verde-block {
-    @include boton($verde, block);
+    &:hover {
+        box-shadow: 0 0 25px lighten($azul, 30);
+    }
 }
 
 .boton-verde {
     @include boton($verde, inline-block);
+    transition-property: background-color;
+    transition-duration: .5s;
+
+    &:hover {
+        box-shadow: 0 0 25px lighten($azul, 30);
+    }
 }
 
 .boton-rojo-block {
     @include boton($rojo, block);
     width: 100%;
+    transition-property: background-color;
+    transition-duration: .5s;
+
+    &:hover {
+        box-shadow: 0 0 25px lighten($azul, 30);
+    }
 }
 
-.boton-rojo {
-    @include boton($amarillo, inline-block);
-}
+.boton-verde-block {
+    @include boton($verde, block);
+    transition-property: background-color;
+    transition-duration: .5s;
 
-.boton-azul-block {
-    @include boton($azul, block);
-}
-
-.boton-azul {
-    @include boton($azul, inline-block);
+    &:hover {
+        box-shadow: 0 0 25px lighten($azul, 30);
+    }
 }

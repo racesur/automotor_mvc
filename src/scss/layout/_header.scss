@@ -24,6 +24,7 @@
 
         .dark-mode-boton {
             filter: invert(0%); //Volvemos el SVG a su color negro original
+
         }
 
         @include tablet {
@@ -47,11 +48,6 @@
 
 }
 
-
-
-
-
-
 .contenido-header {
     display: flex;
     flex-direction: column;
@@ -68,4 +64,38 @@
 
 .dark-mode-boton {
     filter: invert(0%); //Como el SVG es negro, invertimos su color a blanco
+}
+
+// Creamos una nueva clase llamada header2 para implementar el método de JavaScript para que la barra de navegación esté fija en dispositivo con pantallas mayores a una tablet
+.header2 {
+
+
+    //añado para logo barra fija
+    .logos {
+        display: none;
+    }
+
+    @include tablet {
+        &.fijo {
+            left: 0;
+            top: 0;
+            position: fixed;
+            width: 100%;
+            box-shadow: .1rem .2rem .3rem #333333;
+            padding: 2rem;
+            background-color: $grisOscuro;
+
+            //mostrar barra fija
+            .logos {
+                display: flex; //mostrar la imagen
+                max-width: 20rem;
+            }
+
+            .dark-mode-boton {
+                filter: invert(100%); //Invertimos el color del SVG
+            }
+        }
+
+
+    }
 }

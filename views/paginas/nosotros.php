@@ -1,12 +1,15 @@
 <main class="contenedor seccion">
-    <h1>Conoce más Sobre AutoMotor</h1>
-
+    <!-- AÑADO DIV PARA LA BARRA FIJA -->
+    <div class="barra-fija">
+        <h1>Conoce más Sobre AutoMotor</h1>
+    </div>
     <div class="contenido-nosotros">
         <div class="imagen">
             <picture>
-                <source srcset="build/img/4.webp" type="image/webp">
-                <source srcset="build/img/4.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/4.jpg" alt="Sobre Nosotros">
+                <source srcset="build/img/banner5.webp" type="image/webp">
+                <source srcset="build/img/banner5.avif" type="image/avif">
+                <source srcset="build/img/banner5.jpg" type="image/jpeg">
+                <img loading="lazy" src="build/img/banner5.jpg" alt="Sobre Nosotros">
             </picture>
         </div>
 

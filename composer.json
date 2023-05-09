@@ -15,5 +15,8 @@
 			"email": "cesurraul@gmail.com"
 		}
 	],
-	"require": {}
+	"require": {
+		"intervention/image": "^2.7",
+		"phpmailer/phpmailer": "^6.8"
+	}
 }

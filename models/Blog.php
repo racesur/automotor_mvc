@@ -27,4 +27,29 @@ class Blog extends ActiveRecord
         $this->imagen = $args['imagen'] ?? '';
         $this->vendedorId = $args['vendedorId'] ?? '';
     }
+
+    public function validar()
+    {
+        if (!$this->titulo) {
+            self::$errores[] = "debes añadir un título"; //Va colocando la información (el valor) al final del array llamado $errores
+        }
+
+        if (!$this->subtitulo) {
+            self::$errores[] = "debes añadir un subtítulo";
+        }
+
+        if (strlen($this->descripcion) < 50) {
+            self::$errores[] = "la descripción es obligatoria y debe tener al menos 50 caracteres";
+        }
+
+        if (!$this->vendedorId) {
+            self::$errores[] = "debes elegir un autor";
+        }
+
+        if (!$this->imagen) {
+            self::$errores[] = "la imagen es obligatoria";
+        }
+
+        return self::$errores;
+    }
 }

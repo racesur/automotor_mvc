@@ -36,9 +36,14 @@
     border: none;
     margin-bottom: 1rem;
 
-    // Al pasar por encima ponemos que muestre una mano y se oscurezca
+    // Al pasar por encima ponemos que muestre una mano y cambie a azul oscuro
     &:hover {
-        background-color: darken($bgColor, 5);
+        background-color: darken($azul, 20);
         cursor: pointer;
     }
+
+    // &:hover {
+    //     background-color: darken($bgColor, 8);
+    //     cursor: pointer;
+    // }
 }

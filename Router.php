@@ -24,28 +24,28 @@ class Router
         $auth = $_SESSION['login'] ?? null;
 
         //Array de rutas protegidas de la web
-        $rutas_protegidas = ['/admin'];
+        $rutas_protegidas = ['/admin', '/coches/crear', '/coches/actualizar', '/coches/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar', '/mecanicos/crear', '/mecanicos/actualizar', '/mecanicos/eliminar', '/blog/crear', '/blog/actualizar', '/blog/eliminar'];
 
 
         //Rutas que soportan nuestra web
-        $urlActual = $_SERVER['PATH_INFO'] ?? '/'; //saber lo que el usuario pone en la url y saber si es una url válida. Si no existe ese valor le pone una /
+        $urlActual = $_SERVER['PATH_INFO'] ?? '/'; //saber lo que el usuario pone en la url y saber si es una url válida. Si no existe ese valor le pone una / que es la dirección de la pág ppal
         $metodo = $_SERVER['REQUEST_METHOD']; //saber qué método se está utilizando GET o POST
         if ($metodo === 'GET') {
             //colocamos las url dentro del array $rutasGET
-            $fn = $this->rutasGET[$urlActual] ?? null; //si no existe la url tendrá valor null
+            $fn = $this->rutasGET[$urlActual] ?? null; //si no existe la url la variable $fn tendrá valor null
         } else {
             $fn = $this->rutasPOST[$urlActual] ?? null;
         }
 
         //Proteger las rutas
-        //in_array lo que hace es buscar un elemento dentro de un array, buscamos la ruta actual del usuario dentro de las rutas protegidas y vemos si ha iniciado sesión
+        //in_array lo que hace es buscar un elemento dentro de un array, buscamos la ruta actual del usuario dentro de las rutas protegidas y también vemos si ha iniciado sesión
         if (in_array($urlActual, $rutas_protegidas) && !$auth) {
             header('Location: /');
         }
 
 
         if ($fn) {
-            //La URL existe y hay una funcion asociada
+            //Si entra aquí es que la URL existe y hay una funcion asociada
 
             call_user_func($fn, $this); //call_user_func nos permite llamar a una funcion cuando no sabemos cómo se llama esa funcion porque si tenemos varias urls con funciones asociadas no sabemos cuál llamar. Esas funciones están definidas en el controlador. Con this le estamos pasando las variables de rutasPOST y rutasGet
         } else {
@@ -60,11 +60,11 @@ class Router
             $$key = $value; //$$key genera variables con los valores de los keys que le pasamos en $datos y les asigna el valor asociado, ejemplo, 'mensaje'=>'hola', esto lo transforma a $mensaje='hola'
         }
 
-        ob_start(); //Indicamos que empezamos a guardar los datos en memoria(la vista) - Alamacenamiento en memoria durante un momento
-        include __DIR__ . "/views/$view.php"; //queda almacenado en memoria
+        ob_start(); //Indicamos que empezamos a guardar los datos(la vista) en la memoria - Almacenamiento en memoria durante un momento
+        include __DIR__ . "/views/$view.php"; //indicamos la dirección de la vista q quedará almacenada en memoria
 
-        $contenido = ob_get_clean(); //Limpiamos la memoria
+        $contenido = ob_get_clean(); //Limpiamos la memoria y asignamos los datos de la vista a $contenido
 
-        include __DIR__ . "/views/layout.php"; // le pasa la variable $contenido a la pagina maestra (con el header y footer) y donde está la variable $contenido donde mostrará el contenido de la página almacenada de la variable $contenido
+        include __DIR__ . "/views/layout.php"; // le pasa la variable $contenido a la pagina maestra (con el header y footer) y donde está la variable $contenido y donde mostrará la vista almacenada de la variable $contenido
     }
 }

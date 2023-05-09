@@ -26,3 +26,22 @@
         width: 25rem;
     }
 }
+
+.informacion-metas span {
+
+    color: $amarillo;
+
+    @include tablet {
+        @include grid(2, 1rem);
+        grid-auto-flow: column;
+    }
+
+    a {
+        text-decoration: none;
+        color: $grisOscuro;
+    }
+}
+
+.icono-contacto {
+    width: 5rem;
+}
