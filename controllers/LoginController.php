@@ -60,4 +60,9 @@ class LoginController
         // Redireccionamos al USUARIO hacia la página principal del sitio
         header('Location: /');
     }
+
+    public static function olvide(Router $router)
+    {
+        $router->render('auth/olvide-password', []);
+    }
 }

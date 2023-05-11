@@ -49,7 +49,8 @@ class Router
 
             call_user_func($fn, $this); //call_user_func nos permite llamar a una funcion cuando no sabemos cómo se llama esa funcion porque si tenemos varias urls con funciones asociadas no sabemos cuál llamar. Esas funciones están definidas en el controlador. Con this le estamos pasando las variables de rutasPOST y rutasGet
         } else {
-            echo 'Página no encontrada'; // TODO - redireccionar a una pagina de error 404
+            // echo 'Página no encontrada'; // TODO - redireccionar a una pagina de error 404
+            header('Location: /error');
         }
     }
 

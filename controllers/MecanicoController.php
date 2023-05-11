@@ -29,11 +29,6 @@ class MecanicoController
                 $mecanico->setImagen($nombreImagen);
             }
 
-            //** ATENCIÓN, AÑADIDO ESTO SINCRONIZAR/////////// ************ //////  */
-
-            // //Sincroniza el objeto en memoria y le asigna los valores del post
-            // $mecanico->sincronizar($_POST);
-
             //Validar los datos del formulario para evitar campos vacíos
             $errores = $mecanico->validar();
 
@@ -65,11 +60,9 @@ class MecanicoController
         $errores = Mecanico::getErrores();
         $id = validarORedireccionar('/admin');
 
-        //Obtener datos del vendedor a actualizar
+        //Obtener datos del mecanico a actualizar
         $mecanico = Mecanico::find($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //** Sincronizar los datos del objeto en memoria con los nuevos datos que el usuario está enviando */
-
             //Asignamos los valores
             $args = $_POST['mecanico'];
 
@@ -97,10 +90,6 @@ class MecanicoController
                 }
                 //Si no hay errores guardamos los datos en la bbdd
                 $mecanico->guardar();
-
-                // if (empty($errores)) {
-                //     $vendedor->guardar();
-                // }
             }
         }
 

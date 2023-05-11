@@ -88,7 +88,6 @@ function navegacionFija() {
 	const barraFija = document.querySelector('.barra-fija');
 	const body = document.querySelector('body');
 
-
 	// Añadimos un listener al evento scroll y cuando sea negativo añadirá la clase fijo y cuando sea 0 o mayor eliminará la clase fijo
 	window.addEventListener('scroll', function () {
 		if (barraFija.getBoundingClientRect().bottom < 0) {
