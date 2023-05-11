@@ -12,7 +12,6 @@
 
         <input type="submit" class="boton boton-amarillo-block" value="Enviar Instrucciones">
     </form>
-
     <div class="acciones">
         <a href="/login">¿Ya estás registrado? Inicia Sesión</a><a href="/crear-cuenta">¿Aún no estás registrado? Crear
             una
