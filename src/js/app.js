@@ -74,7 +74,7 @@ function darkMode() {
 		}
 	});
 
-	// Añadimos un evento al icono del tema oscuro de la barra de navegación para que al pulsar sobre él se añada o se quite la clase "dark-mode", eso lo hacemos con toggle
+	// Añadimos un evento al icono del tema oscuro de la barra de navegación para que al pulsar sobre él se añada o se quite la clase "dark-mode" con toggle
 	const botonDarkMode = document.querySelector(".dark-mode-boton");
 	botonDarkMode.addEventListener("click", function () {
 		document.body.classList.toggle("dark-mode");

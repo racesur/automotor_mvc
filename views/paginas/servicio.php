@@ -10,7 +10,6 @@
             con las herramientas y equipos más avanzados de la industria para asegurarnos de que tu vehículo reciba el
             mejor
             servicio posible.</p>
-
         <p>
             ¿Necesitas servicio de mantenimiento para tu vehículo? ¡Nuestro equipo de mecánicos expertos está listo para
             ayudarte! Agenda una cita en nuestro taller hoy mismo para conocer a nuestro equipo y experimentar la

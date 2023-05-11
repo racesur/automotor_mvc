@@ -12,7 +12,6 @@
                         echo $vendedor->nombre . " " . $vendedor->apellido;
                 } ?></span>
     </p>
-
     <div class="resumen-propiedad">
         <p><?php echo $blog->descripcion; ?></p>
     </div>

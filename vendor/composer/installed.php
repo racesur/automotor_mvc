@@ -3,7 +3,7 @@
         'name' => 'raul/automotor_mvc',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '328e7ea71247ecc656b9592b1be0939fb71d26ef',
+        'reference' => '7a896946f79bfa3928065d1b5b1953bbff532458',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -79,7 +79,7 @@
         'raul/automotor_mvc' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '328e7ea71247ecc656b9592b1be0939fb71d26ef',
+            'reference' => '7a896946f79bfa3928065d1b5b1953bbff532458',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

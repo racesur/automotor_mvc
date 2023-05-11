@@ -6,5 +6,4 @@
     <?php
     include 'listadoBlog.php';
     ?>
-
 </main>
