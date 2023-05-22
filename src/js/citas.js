@@ -23,14 +23,11 @@ function iniciarApp() {
     botonesPaginador(); // Agrega o quita los botones de avance y retroceso del paginador
     paginaSiguiente(); //Agrega la función para pasar a la seccion siguiente
     paginaAnterior(); //Agrega la función para pasar a la seccion anterior
-
     consultaAPI(); // Consulta la API en el Backend de PHP
-
     idCliente(); // Consulta el id del cliente en el Backend de PHP
     nombreCliente(); //Añade el nombre del cliente al objeto de cita
     seleccionarFecha(); // Añade la fecha de la cita al objeto de cita
     seleccionarHora(); // Añade la hora de la cita al objeto de cita
-
     mostrarResumen(); // Muestra el resumen de la cita
 }
 
@@ -64,10 +61,8 @@ function tabs() {
     botones.forEach((boton) => {
         boton.addEventListener("click", function (e) {
             e.preventDefault();
-
             paso = parseInt(e.target.dataset.paso);
             mostrarSeccion();
-
             //Mandamos llamar a la función del paginador
             botonesPaginador();
         });
@@ -101,7 +96,6 @@ function paginaAnterior() {
     paginaAnterior.addEventListener("click", function () {
         if (paso <= pasoInicial) return; //Si el paso es menor o igual que el inicial, no hacemos nada
         paso--; // si no, vamos restando el número que aparezca en paso
-
         botonesPaginador(); //mostrará u ocultará los botones según el valor del paso
     });
 }
@@ -112,7 +106,6 @@ function paginaSiguiente() {
     paginaSiguiente.addEventListener("click", function () {
         if (paso >= pasoFinal) return; //Si el paso es igual o mayor que el final, no hacemos nada
         paso++; // si no, vamos sumando el número que aparezca en paso
-
         botonesPaginador(); //mostrará u ocultará los botones según el valor del paso
     });
 }
@@ -230,7 +223,6 @@ function mostrarAlerta(mensaje, tipo, elemento, desaparece = true) {
         //Si existe una alerta previa la elimina
         alertaPrevia.remove();
     }
-
     //Script para crear la alerta
     const alerta = document.createElement("DIV");
     alerta.textContent = mensaje;
@@ -267,7 +259,6 @@ function mostrarResumen() {
             ".contenido-resumen",
             false
         );
-
         return;
     }
 
@@ -348,7 +339,6 @@ function mostrarResumen() {
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaCita);
     resumen.appendChild(horaCita);
-
     resumen.appendChild(botonReservar);
 }
 //Usamos una función asíncrona para usar await porque se tiene que conectar a la API y no sabemos cuanto tardará
@@ -368,15 +358,13 @@ async function reservarCita() {
     datos.append("hora", hora); //Añadimos la hora al formd
     datos.append("usuarioId", id); //Añadimos el nombre al formd
     datos.append("servicios", idServicios); //Añadimos la hora al formd
-    //poder ver los datos que estamos enviando en el formdata en el consolelog -> escibimos console.log([...datos]);
 
-    // console.log([...datos]);
+    // console.log([...datos]); //veo lo que mando en el formdata
     // return;
 
     try {
         //Petición hacia la API
         const url = "http://localhost:3000/api/citas";
-
 
         // le pasamos dos parámetros, uno es la url y otro es un objeto de configuración que es obligatorio en post. Body es el cuerpo de la peticion que vamos a enviar que es datos. Así, identifica los datos y los envía justo con la petición POST hacia la url
         const respuesta = await fetch(url, {

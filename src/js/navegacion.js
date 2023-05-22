@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     navegacionFija(); // Funcionalidad Barra Navegación Fija
-
 });
 // Creamos un método para que la barra de navegación se mantenga fija en la parte superior de la página cuando se haga scroll hacia abajo
 function navegacionFija() {
+
     // Creamos las constantes que usaremos para el método
     const barra = document.querySelector('.header2');
     const barraFija = document.querySelector('.barra-fija');
