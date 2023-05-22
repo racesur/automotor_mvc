@@ -1,2 +1,3 @@
 controllers/PaginasController.php
+classes/Email.php
 node_modules

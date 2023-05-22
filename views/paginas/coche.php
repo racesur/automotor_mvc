@@ -26,3 +26,4 @@
         <a href="/coches" class="boton-azul">Volver a la Galería</a>
     </div>
 </main>
+<script src="../build/js/navegacion.js"></script>

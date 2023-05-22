@@ -27,7 +27,7 @@ function s($html): string
 //Validar el tipo de contenido para evitar que alguien pueda borrar otra cosa cambiando el campo value del input hidden por alguna consulta SQL
 function validarTipoContenido($tipo)
 {
-    $tipos = ['vendedor', 'coche', 'mecanico', 'blog']; //Si el valor no está en este array no se va a ejecutar
+    $tipos = ['vendedor', 'coche', 'mecanico', 'blog', 'servicio']; //Si el valor no está en este array no se va a ejecutar
 
     return in_array($tipo, $tipos); //la función in_array nos permite buscar un string o un valor en un array
 }
@@ -65,4 +65,35 @@ function validarORedireccionar(string $url)
     }
 
     return $id;
+}
+
+//** NUEVAS FUNCIONES PARA SEPARA A LOS USUARIOS DE LOS ADMINISTRADORES */
+
+// Nueva función que revisa que el usuario esté autenticado
+function isAuth()
+{
+    if (!isset($_SESSION['login'])) {
+        header("Location: /");
+    }
+}
+
+
+// Método para comprobar que el usuario sea un Administrador
+function isAdmin()
+{
+    //Comprobamos que el usuario logado sea un administrador
+    if (!isset($_SESSION['admin']) || $_SESSION['admin'] === "0") {
+        //Redirigimos al usuario a la página principal
+        header('Location: /');
+    }
+}
+
+//Método del Panel de Administracion de gestión de Citas(admincitas-index), para saber cuando es el último elemento y así mostrar la suma total
+function esUltimo($actual, $proximo)
+{
+    //si son diferentes es que es el último elemento
+    if ($actual !== $proximo) {
+        return true;
+    }
+    return false;
 }

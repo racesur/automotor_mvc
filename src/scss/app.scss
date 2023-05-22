@@ -7,7 +7,6 @@
 @import "base/botones";
 @import "base/darkMode";
 
-
 //UI
 @import "layout/header";
 @import "layout/footer";
@@ -18,12 +17,18 @@
 @import "layout/inferior";
 @import "layout/testimoniales";
 @import "layout/formularios";
+@import "layout/resumen";
 
 //PAGINAS INTERNAS
 @import "internas/nosotros";
 @import "internas/admin";
+@import "internas/cita";
+@import "internas/UI";
 
 //COMPONENTES
 @import "componentes/acciones";
 @import "componentes/alertas";
 @import "componentes/error";
+@import "componentes/servicios";
+@import "componentes/paginacion";
+@import "componentes/tabs";

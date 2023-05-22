@@ -17,6 +17,7 @@
     }
 }
 
+//Crear columnas y el espaciado
 @mixin grid($columnas, $espaciado ) {
     display: grid;
     gap: $espaciado;
@@ -38,8 +39,37 @@
 
     // Al pasar por encima ponemos que muestre una mano y cambie a azul oscuro
     &:hover {
-        background-color: darken($azul, 20);
+        background-color: darken($azul, 20%);
         cursor: pointer;
     }
 
+}
+
+// Botones del sitio web con 2 parámetros, color y color del texto
+@mixin boton-2($bgColor, $colorTexto) {
+    background-color: $bgColor;
+    padding: 1.5rem 4rem;
+    color: $colorTexto;
+    margin-top: 2rem;
+    font-size: 2rem;
+    // font-weight: 400;
+    // display: inline-block;
+    font-weight: $bold;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 5rem 0;
+
+    @include tablet {
+        width: auto;
+    }
+
+    &:hover {
+        background-color: darken($azul, 20%);
+        box-shadow: 0 0 25px lighten($azul, 30);
+        cursor: pointer;
+    }
 }

@@ -11,8 +11,11 @@ class MecanicoController
 {
     public static function crear(Router $router)
     {
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
 
-        $errores = Mecanico::getErrores();
+        // $errores = Mecanico::getErrores();
+        $errores = Mecanico::getAlertas();
 
         // Creamos una nueva instancia para mantener los valores del formulario y que no se borren si hay algún error
         $mecanico = new Mecanico();
@@ -57,7 +60,11 @@ class MecanicoController
 
     public static function actualizar(Router $router)
     {
-        $errores = Mecanico::getErrores();
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
+
+        // $errores = Mecanico::getErrores();
+        $errores = Mecanico::getAlertas();
         $id = validarORedireccionar('/admin');
 
         //Obtener datos del mecanico a actualizar
@@ -101,6 +108,8 @@ class MecanicoController
 
     public static function eliminar()
     {
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //Validar el id

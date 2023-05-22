@@ -1,0 +1,59 @@
+.listado-servicios {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    @include tablet {
+        // @include grid(2, 2rem); //Creamos dos columnas para mostrar los servicio
+        @include grid(3, 2rem); //Creamos tres columnas para mostrar los servicio
+    }
+
+    .servicio {
+        background-color: $grisOscuro;
+        // background-color: $blanco;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        transition-property: transform;
+        transition-duration: 300ms;
+        text-align: center;
+
+        &.seleccionado {
+            background-color: $azul;
+
+            p {
+                color: $blanco;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        p {
+            // color: $negro;
+            color: $blanco;
+            margin: 0 0 calc($separacion / 4) 0;
+        }
+
+        .precio-servicio {
+            color: $azul;
+            font-weight: $bold;
+            font-size: 4rem;
+            margin: 0;
+        }
+    }
+
+}
+
+.servicio-descripcion {
+    text-align: unset;
+    font-weight: $regular;
+}
+
+.servicio-nombre {
+
+    font-weight: $bold;
+    color: $amarillo;
+    margin-bottom: .1rem;
+
+}

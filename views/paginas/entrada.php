@@ -19,3 +19,4 @@
         <a href="/blog" class="boton-azul">Volver al Blog</a>
     </div>
 </main>
+<script src="../build/js/navegacion.js"></script>

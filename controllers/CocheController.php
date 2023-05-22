@@ -12,10 +12,14 @@ class CocheController
 
     public static function crear(Router $router)
     {
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
+
         // Creamos una nueva instancia para mantener los valores del formulario y que no se borren si hay algún error
         $coche = new Coche;
         $vendedores = Vendedor::all(); //Porque queremos mostrar los vendedores
-        $errores = Coche::getErrores(); // Array con mensajes de errores validación
+        // $errores = Coche::getErrores(); // Array con mensajes de errores validación
+        $errores = Coche::getAlertas(); // Array con mensajes de errores validación
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //Creamos una nueva instancia de Coche que recibe un array
@@ -60,13 +64,17 @@ class CocheController
     public static function actualizar(Router $router)
     {
 
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
+
         $id = validarORedireccionar('/admin');
 
         $coche = Coche::find($id);
 
         $vendedores = Vendedor::all();
 
-        $errores = Coche::getErrores();
+        // $errores = Coche::getErrores();
+        $errores = Coche::getAlertas();
 
         //Método POST para actualizar
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -110,6 +118,8 @@ class CocheController
 
     public static function eliminar($id)
     {
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Ponemos POST porque las variables no existirán hasta que enviemos el formulario para eliminar el registro que queremos
             //Validar ID

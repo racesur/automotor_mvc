@@ -7,6 +7,12 @@ if (!isset($_SESSION)) {
 
 // Verificamos si el usuario ha iniciado la sesión, sino toma el valor de FALSE
 $auth = $_SESSION['login'] ?? false;
+// Verificamos si el usuario ha iniciado la sesión
+$admin = $_SESSION['admin'] ?? false;
+// Verificamos si el usuario que ha iniciado la sesión es admin, sino toma el valor de FALSE
+if ($admin) {
+    $admin = ($_SESSION['admin'] === '1') ?? false;
+}
 
 // Para mostrar la foto sólo en la pág ppal, Verificamos si existe la variable de inicio, sino será false y la foto no se mostrará
 if (!isset($inicio)) {
@@ -40,6 +46,7 @@ if (!isset($inicio)) {
                 </div>
                 <!-- AÑADO CLASE PARA BARRA FIJA -->
                 <div class="header2 barra">
+                    <!-- <div class="header2"> -->
                     <img class="logos" src="../build/img/logos1.svg" alt="logo">
                     <div class="derecha">
                         <img class="dark-mode-boton" src="../build/img/dark-mode.svg">
@@ -50,12 +57,17 @@ if (!isset($inicio)) {
                             <a href="/nosotros">Nosotros</a>
                             <a href="/blog">Blog</a>
                             <a href="/contacto">Contacto</a>
-                            <?php if (!$auth) : ?>
-                            <a href="/login">Iniciar Sesión</a>
+                            <?php if (!$auth && !$admin) : ?>
+                                <a href="/login">Iniciar Sesión</a>
                             <?php endif; ?>
-                            <?php if ($auth) : ?>
-                            <a href="/admin">Panel</a>
-                            <a href="/logout">Cerrar Sesión</a>
+                            <?php if ($admin) : ?>
+                                <a href="/admin">Panel</a>
+                            <?php endif; ?>
+                            <?php if ($auth && !$admin) : ?>
+                                <a href="/cita">Citas</a>
+                            <?php endif; ?>
+                            <?php if ($auth || $admin) : ?>
+                                <a href="/logout">Cerrar Sesión</a>
                             <?php endif; ?>
                         </nav>
                     </div>
@@ -64,7 +76,7 @@ if (!isset($inicio)) {
                 <!--.barra-->
             </div>
             <?php if ($inicio) { ?>
-            <h1>Ven a AutoMotor y experimenta la emoción de conducir</h1>
+                <h1>Ven a AutoMotor y experimenta la emoción de conducir</h1>
             <?php } ?>
         </div>
     </header>
@@ -91,14 +103,11 @@ if (!isset($inicio)) {
             <!-- REDES SOCIALES -->
             <p class="copyright"> <span>Siguenos también en las Redes Sociales:</span></p>
             <p class="informacion-metas-footer contenedor">
-                <span> <a href="www.facebook.com"><img class="icono-contacto" src="build/img/facebook.png"
-                            alt="icono Facebook"> Facebook:
+                <span> <a href="www.facebook.com"><img class="icono-contacto" src="build/img/facebook.png" alt="icono Facebook"> Facebook:
                         @automotor</a>
-                    <a href="www.instagram.com"><img class="icono-contacto" src="build/img/instagram.png"
-                            alt="icono Instagram">Instagram:
+                    <a href="www.instagram.com"><img class="icono-contacto" src="build/img/instagram.png" alt="icono Instagram">Instagram:
                         @automotor_oficial</a>
-                    <a href="www.twitter.com"><img class="icono-contacto" src="build/img/twitter.png"
-                            alt="icono Twitter">
+                    <a href="www.twitter.com"><img class="icono-contacto" src="build/img/twitter.png" alt="icono Twitter">
                         Twitter: @automotor_es</a>
                 </span>
             </p>

@@ -12,9 +12,17 @@
             servicio posible.</p>
         <p>
             ¿Necesitas servicio de mantenimiento para tu vehículo? ¡Nuestro equipo de mecánicos expertos está listo para
-            ayudarte! Agenda una cita en nuestro taller hoy mismo para conocer a nuestro equipo y experimentar la
+            ayudarte! Solicita una cita en nuestro taller hoy mismo para conocer a nuestro equipo y experimentar la
             calidad de
-            nuestro servicio. ¡Te esperamos!</p>
+            nuestro servicio.<br><strong>¡TE ESPERAMOS!</strong></p>
     </section>
 
+    <section>
+        <h2>Lista de los Servicios Disponibles en Nuestro Taller</h2>
+
+        <?php
+        include 'listadoServicios.php';
+        ?>
+    </section>
 </main>
+<script src="../build/js/navegacion.js"></script>

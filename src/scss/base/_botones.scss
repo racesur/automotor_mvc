@@ -59,7 +59,10 @@
 }
 
 .boton-rojo-block {
+
     @include boton($rojo, block);
+    margin-top: 1rem;
+    padding: 1.7rem;
     width: 100%;
     transition-property: background-color;
     transition-duration: .5s;

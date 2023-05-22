@@ -7,3 +7,4 @@
     include 'listadoBlog.php';
     ?>
 </main>
+<script src="../build/js/navegacion.js"></script>

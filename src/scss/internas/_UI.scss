@@ -1,0 +1,89 @@
+.contenedor-app {
+    @include tablet {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        min-height: 100vh;
+    }
+
+}
+
+//* PAGINA ADMINCITA*/
+
+.barra-2 {
+    margin: $separacion 0;
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .boton-2 {
+        @include boton-2($amarillo, $blanco);
+        margin: 0;
+    }
+}
+
+.barra-servicios {
+    margin-bottom: $separacion;
+    color: $blanco;
+    // font-weight: $regular;
+    // display: block;
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .boton-2 {
+        @include boton-2($azul, $blanco);
+        margin: 0 0 1rem 0;
+    }
+}
+
+.nombre-pagina {
+    text-align: center;
+    margin: 5rem 0;
+    font-weight: $bold;
+}
+
+.descripcion-pagina {
+    text-align: center;
+}
+
+//* AÑADO EL CSS PARA LA PANTALLA DE ADMINCITA*/
+
+.citas {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding: 1rem;
+        border-top: 1px solid $azul;
+
+        p {
+            font-weight: $bold;
+            color: $azul;
+        }
+
+        span,
+        .servicio {
+            font-weight: $regular;
+            color: $grisOscuro;
+        }
+
+    }
+}
+
+.servicios {
+    // @extend .citas;
+
+    .acciones {
+        margin: 0;
+    }
+
+    .boton-2,
+    .boton-eliminar-2 {
+        margin: 0;
+    }
+}

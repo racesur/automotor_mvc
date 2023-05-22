@@ -15,3 +15,4 @@
         ?>
 
     </main>
+    <script src="../build/js/navegacion.js"></script>

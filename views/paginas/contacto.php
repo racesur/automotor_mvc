@@ -6,9 +6,9 @@
             <!-- Mostramos un mensaje si el correo se ha podido enviar o si ha habido un error en el envío-->
             <?php
             if ($mensaje) { ?>
-            <p class='alerta exito'><?php echo $mensaje; ?></p>
+                <p class='alerta exito'><?php echo $mensaje; ?></p>
             <?php } elseif ($error) { ?>
-            <p class='alerta error'><?php echo $error; ?></p>
+                <p class='alerta error'><?php echo $error; ?></p>
             <?php } ?>
 
             <section class="seccion contenedor">
@@ -19,15 +19,13 @@
                     calidad. Si tienes alguna
                     pregunta o comentario sobre nuestros servicios o vehículos, por favor, no dudes en ponerte en
                     contacto con
-                    nosotros. Nuestro equipo de expertos está aquí para ayudarte en todo lo que necesites!</p>
+                    nosotros.<br><strong>¡Nuestro equipo de expertos está aquí para ayudarte en todo lo que
+                        necesites!</strong></p>
 
             </section>
             <p> <strong>Nuestros datos de Contacto:</strong></p>
             <div class="contenedor seccion seccion-inferior-2">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d758.8767126784618!2d-3.618226676063367!3d40.464050651259036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1683196931238!5m2!1ses!2ses"
-                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d758.8767126784618!2d-3.618226676063367!3d40.464050651259036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1683196931238!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <p class="informacion-metas">
                     <strong> Dirección Sede Central: </strong><br>
                     <span>Calle de los Coches, 123
@@ -44,37 +42,6 @@
                 </p>
                 <p><strong>¡Siguenos en las Redes Sociales!</strong></p>
                 <p class="informacion-metas">
-                    <span> <a href="www.facebook.com"><img class="icono-contacto" src="build/img/facebook.png"
-                                alt="icono Facebook"> Facebook:
-                            @automotor</a>
-                        <a href="www.instagram.com"><img class="icono-contacto" src="build/img/instagram.png"
-                                alt="icono Intagram">Instagram:
-                            @automotor_oficial</a>
-                        <a href="www.twitter.com"><img class="icono-contacto" src="build/img/twitter.png"
-                                alt="icono Twitter">
-                            Twitter: @automotor_es</a>
-                    </span>
-                </p>
-            </div>
-
-            <!-- <div class="contenedor seccion seccion-inferior-2">
-                <p> <strong>Nuestros datos de Contacto:</strong></p>
-                <p class="informacion-metas">
-                    <strong> Dirección Sede Central: </strong><br>
-                    <span>Calle de los Coches, 123
-                        28000 Madrid, España</span> <br>
-
-                    <strong> Medios de Contacto: </strong><br>
-                    Teléfono: <span> +34 912 345 678 </span> <br>
-                    Correo electrónico: <span>info@automotor.com</span> <br>
-
-                    <strong>Horario de atención al cliente:</strong> <br>
-                    Lunes a viernes: <span>9:00 am - 8:00 pm</span> <br>
-                    Sábados: <span>9:00 am - 2:00 pm</span> <br>
-                    Domingos: <span><strong>cerrado</strong></span>
-                </p>
-                <p><strong>Siguenos en las Redes Sociales:</strong></p>
-                <p class="informacion-metas">
                     <span> <a href="www.facebook.com"><img class="icono-contacto" src="build/img/facebook.png" alt="icono Facebook"> Facebook:
                             @automotor</a>
                         <a href="www.instagram.com"><img class="icono-contacto" src="build/img/instagram.png" alt="icono Intagram">Instagram:
@@ -83,7 +50,7 @@
                             Twitter: @automotor_es</a>
                     </span>
                 </p>
-            </div> -->
+            </div>
 
             <div class="contenedor seccion contenido-centrado">
                 <picture>
@@ -94,7 +61,7 @@
                 </picture>
 
                 <h2>Completa el formulario de Contacto</h2>
-                <p class="contacto-texto informacion-meta">¡Gracias por visitar <strong>Automotor!</strong> Si necesitas
+                <p class="contacto-texto informacion-meta">¡Gracias por visitar <strong>AutoMotor!</strong> Si necesitas
                     más información sobre nuestros
                     servicios o los vehículos en stock disponibles, quieres tasar o vender tu coche no dudes en ponerte
                     en contacto
@@ -124,8 +91,7 @@
                         </select>
 
                         <label for="presupuesto">Precio o Presupuesto</label>
-                        <input type="number" placeholder="Tu Precio o Presupuesto" id="presupuesto"
-                            name="contacto[precio]" required>
+                        <input type="number" placeholder="Tu Precio o Presupuesto" id="presupuesto" name="contacto[precio]" required>
 
                     </fieldset>
 
@@ -151,3 +117,4 @@
                 </form>
             </div>
         </main>
+        <script src="../build/js/navegacion.js"></script>

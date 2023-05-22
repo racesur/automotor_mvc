@@ -25,6 +25,18 @@ class ActiveRecord
         return static::$errores;
     }
 
+    //Método para mostrar mensajes de errores
+    public static function setAlerta($error)
+    {
+        static::$errores[] = $error;
+    }
+
+    // Método para obtener los errores
+    public static function getAlertas()
+    {
+        return static::$errores;
+    }
+
     public function validar()
     {
         static::$errores = []; //Cada vez que validemos limpiaremos el array de errores
@@ -102,7 +114,7 @@ class ActiveRecord
     //Creamos los objetos a partir de los resultados obtenidos de la BBDD
     protected static function crearObjeto($registro)
     {
-        $objeto = new static(); // Crea nuevos objetos de la clase Propiedad con todos los campos-> id, titutlo, etc..
+        $objeto = new static(); // Crea nuevos objetos de la clase donde se ejecute con todos sus campos-> id, titutlo, etc..
 
         foreach ($registro as $key => $value) {
             if (property_exists($objeto, $key)) { //Compara 2 objetos, uno es el nuevo objeto creado y otro es el key, y vamos a verificar si este nuevo objeto tiene un key llamado 'id', 'titulo', etc.. entonces le asignará el valor o value -- Mapea los datos
@@ -129,6 +141,8 @@ class ActiveRecord
 
     public function guardar()
     {
+        // $resultado = '';
+
         if (!is_null($this->id)) {
             // Si tenemos el dato de id es que existe una entrada en la bbdd así q estamos actualizando -> llamamos al método actualizar
             $this->actualizar();
@@ -136,6 +150,8 @@ class ActiveRecord
             // Si no tenemos el dato de id de la BBDD es que estamos creando un nuevo registro en la bbdd -> llamamos al método crear
             $this->crear();
         }
+
+        // return $resultado;
     }
 
     public function crear()
@@ -153,10 +169,52 @@ class ActiveRecord
         $resultado = self::$db->query($query);
 
         if ($resultado) {
-            //**Redireccionamos al usuario para evitar duplicar entradas del formulario
+            //**Redireccionamos al usuario para evitar duplicar entradas del formulario*/
 
             header('Location: /admin?resultado=1');
         }
+    }
+
+    //Creamos un método para crear la cuenta de usuario
+    public function crearCuenta()
+    {
+        //Sanitizar los datos del formulario
+        $atributos = $this->sanitizarAtributos();
+
+        // Insertar los datos en la BBDD
+        $query = "INSERT INTO " . static::$tabla . " ( ";
+        $query .= join(', ', array_keys($atributos));
+        $query .= " ) VALUES (' ";
+        $query .= join("', '", array_values($atributos));
+        $query .= " ') ";
+
+        $resultado = self::$db->query($query);
+
+        return [
+            'resultado' =>  $resultado,
+        ];
+    }
+
+    //Método para crear una cita
+    public function crearCita()
+    {
+        //Sanitizar los datos del formulario
+        $atributos = $this->sanitizarAtributos();
+
+        // Insertar los datos en la BBDD
+        $query = "INSERT INTO " . static::$tabla . " ( ";
+        $query .= join(', ', array_keys($atributos));
+        $query .= " ) VALUES (' ";
+        $query .= join("', '", array_values($atributos));
+        $query .= " ') ";
+
+        $resultado = self::$db->query($query);
+        $id = self::$db->insert_id;
+
+        return [
+            'resultado' =>  $resultado,
+            'id' => $id,
+        ];
     }
 
     public function actualizar()
@@ -182,6 +240,26 @@ class ActiveRecord
         }
     }
 
+    //Método para actualizar una cuenta de usuario
+    public function actualizarCuenta()
+    {
+        //Sanitizar los datos del formulario
+        $atributos = $this->sanitizarAtributos();
+
+        $valores = [];
+        foreach ($atributos as $key => $value) {
+            $valores[] = "$key='$value'";
+        }
+        // Consulta para actualizar en la BBDD, usamos escape_string para evitar inyeccSQL y limitamos la búsqueda a 1 por si acaso
+        $query = " UPDATE " . static::$tabla . " SET ";
+        $query .= join(', ', $valores);
+        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " LIMIT 1 ";
+
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
+
     //Eliminar un registro de la BBDD
     public function eliminar()
     {
@@ -194,6 +272,15 @@ class ActiveRecord
             $this->borrarImagen();
             header('Location: /admin?resultado=3');
         }
+    }
+
+    //Método para que el admin elimine las citas de los usuarios
+    public function eliminarCita()
+    {
+        $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1"; // Usamos escape porque estamos leyendo el id y alguien puede escribir código malicios y limite 1 para que sólo elimine 1 registro
+
+        $resultado = self::$db->query($query);
+        return $resultado;
     }
 
     //Identifica y une los atributos de la BBDD con los datos introducidos en el formulario

@@ -10,12 +10,13 @@
     <?php endif; ?>
     <?php } ?>
 
-
     <!-- BARRA DE BOTONES  -->
     <a href="/coches/crear" class="boton boton-amarillo">Nuevo Coche</a>
     <a href="/vendedores/crear" class="boton boton-amarillo">Nuev@ Vendedor@</a>
     <a href="/mecanicos/crear" class="boton boton-amarillo">Nuev@ Mecánic@</a>
     <a href="/blog/crear" class="boton boton-amarillo">Nueva Entrada Blog</a>
+    <a href="/servicios/crear" class="boton boton-amarillo">Nuevo Servicio</a>
+    <a href="/admincita" class="boton boton-amarillo">Gestionar Citas</a>
 
     <h2>Catálogo de Vehículos</h2>
     <table class="propiedades">
@@ -177,6 +178,39 @@
                         <input type="submit" class="boton-rojo-block" value="Eliminar">
                     </form>
                     <a href="/blog/actualizar?id=<?php echo $blog->id; ?>" class="boton-amarillo-block">Actualizar</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <h2>Catálogo de Servicios del Concesionario</h2>
+    <table class="propiedades">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <!-- MOSTRAR LOS RESULTADOS OBTENIDOS DE LA CONSULTA A LA BBDD SERVICIOS-->
+        <tbody>
+            <?php foreach ($servicios as $servicio) : ?>
+            <tr>
+                <td> <?php echo $servicio->id; ?></td>
+                <td> <?php echo $servicio->nombre; ?></td>
+                <td><?php echo $servicio->precio; ?> €</td>
+                <td>
+                    <form method="POST" class="w-100" action="/servicios/eliminar">
+                        <input type="hidden" name="id" value="<?php echo $servicio->id; ?>">
+                        <input type="hidden" name="tipo" value="servicio">
+                        <input type="submit" class="boton-rojo-block" value="Eliminar">
+                    </form>
+
+                    <a href="/servicios/actualizar?id=<?php echo $servicio->id; ?>"
+                        class="boton-amarillo-block">Actualizar</a>
                 </td>
             </tr>
             <?php endforeach; ?>

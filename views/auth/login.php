@@ -2,9 +2,9 @@
     <h1>Iniciar Sesión</h1>
 
     <?php foreach ($errores as $error) : ?>
-    <div class="alerta error">
-        <?php echo $error; ?>
-    </div>
+        <div class="alerta error">
+            <?php echo $error; ?>
+        </div>
 
     <?php endforeach; ?>
 

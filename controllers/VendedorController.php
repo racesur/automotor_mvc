@@ -10,8 +10,11 @@ class VendedorController
 {
     public static function crear(Router $router)
     {
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
 
-        $errores = Vendedor::getErrores();
+        // $errores = Vendedor::getErrores();
+        $errores = Vendedor::getAlertas();
 
         // Creamos una nueva instancia para mantener los valores del formulario y que no se borren si hay algún error
         $vendedor = new Vendedor();
@@ -57,8 +60,11 @@ class VendedorController
 
     public static function actualizar(Router $router)
     {
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
 
-        $errores = Vendedor::getErrores();
+        // $errores = Vendedor::getErrores();
+        $errores = Vendedor::getAlertas();
         $id = validarORedireccionar('/admin');
 
         //Obtener datos del vendedor a actualizar
@@ -109,6 +115,8 @@ class VendedorController
 
     public static function eliminar()
     {
+        //Protegemos la ruta de este método, para que nadie pueda acceder a la url si no es administrador, usando la funcion isAdmin
+        isAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //Validar el id para que no introduzcan una consulta SQL

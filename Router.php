@@ -23,9 +23,8 @@ class Router
 
         $auth = $_SESSION['login'] ?? null;
 
-        //Array de rutas protegidas de la web
-        $rutas_protegidas = ['/admin', '/coches/crear', '/coches/actualizar', '/coches/eliminar', '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar', '/mecanicos/crear', '/mecanicos/actualizar', '/mecanicos/eliminar', '/blog/crear', '/blog/actualizar', '/blog/eliminar'];
-
+        //Array de rutas protegidas de la web. Ahora usaremos isAdmin() y isAuth()
+        $rutas_protegidas = ['/admin', '/cita'];
 
         //Rutas que soportan nuestra web
         $urlActual = $_SERVER['PATH_INFO'] ?? '/'; //saber lo que el usuario pone en la url y saber si es una url válida. Si no existe ese valor le pone una / que es la dirección de la pág ppal

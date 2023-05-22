@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2023 a las 19:50:40
+-- Tiempo de generación: 22-05-2023 a las 23:13:27
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -61,6 +61,13 @@ CREATE TABLE `citas` (
   `usuarioId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Volcado de datos para la tabla `citas`
+--
+
+INSERT INTO `citas` (`id`, `fecha`, `hora`, `usuarioId`) VALUES
+(27, '2023-05-30', '11:00:00', 11);
+
 -- --------------------------------------------------------
 
 --
@@ -72,6 +79,16 @@ CREATE TABLE `citasservicios` (
   `citaId` int(11) NOT NULL,
   `servicioId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `citasservicios`
+--
+
+INSERT INTO `citasservicios` (`id`, `citaId`, `servicioId`) VALUES
+(11, 27, 6),
+(10, 27, 8),
+(12, 27, 9),
+(9, 27, 10);
 
 -- --------------------------------------------------------
 
@@ -106,8 +123,7 @@ INSERT INTO `coches` (`id`, `titulo`, `marca`, `modelo`, `precio`, `imagen`, `pu
 (32, ' Nuevo Renault TDR', 'Renault', 'TDR', '55000.00', '4b72116a0c9ea1eb14d8340db445cd89.jpg', 5, 5, 180, 'El Renault TDR es un coche compacto diseñado para ofrecer un alto nivel de eficiencia y comodidad. Con un motor de gasolina de 1.0 litros y tres cilindros, este coche ofrece un consumo de combustible de 5,3 litros cada 100 km, lo que lo convierte en una opción atractiva para los conductores que buscan reducir sus costos de combustible.<br>El equipamiento incluye una pantalla táctil para el sistema de infoentretenimiento, climatizador automático y cámara trasera para facilitar las maniobras en espacios reducidos.<br>Con un precio de 18.000€, el Renault Clio es una opción interesante para los conductores que buscan un coche compacto y eficiente con un equipamiento adecuado.', 36, '2023-05-09'),
 (33, ' Nuevo BMW Serie 6', 'BMW', 'Serie 6', '110000.00', '773a9647bde4c74b8863f706eaa82082.jpg', 3, 4, 230, 'El BMW Serie 6 es un sedán de lujo diseñado para ofrecer una experiencia de conducción de alta calidad. Con un motor diésel de 2.0 litros y cuatro cilindros, este coche ofrece un consumo de combustible de 5,8 litros cada 100 km, lo que lo hace adecuado para conductores que buscan un coche potente y eficiente.<br>El equipamiento incluye una pantalla táctil para el sistema de infoentretenimiento, climatizador automático, cámara trasera, faros LED y tapicería de cuero para ofrecer una experiencia de conducción de lujo.<br>Con un precio de 50.000€, el BMW Serie 3 es una opción atractiva para los conductores que buscan un coche de lujo con un alto nivel de equipamiento y un rendimiento potente.', 38, '2023-05-09'),
 (34, ' Nuevo Audi A5', 'Audi', 'A5', '82500.00', '2d7dd56dde65f5d7749330e70c8d40b3.jpg', 5, 5, 210, 'El Audi A5 es un sedán de cuatro puertas diseñado para ofrecer un alto nivel de confort y lujo. Con un motor diésel de 2.0 litros y cuatro cilindros, este coche ofrece un consumo de combustible de 6,2 litros cada 100 km, lo que lo hace adecuado para conductores que buscan un coche potente y eficiente.<br>El equipamiento incluye una pantalla táctil para el sistema de infoentretenimiento, cámara trasera, faros LED y tapicería de cuero para ofrecer una experiencia de conducción de lujo.<br>Con un precio de 82.500€, el Audi A5 es una opción atractiva para los conductores que buscan un sedán de lujo con un alto nivel de equipamiento.', 33, '2023-05-09'),
-(35, ' Nuevo Mercedes Clase A', 'Mercedes-Benz', 'Clase A', '88000.00', 'a71bca835f1be581728aa4a22db7788c.jpg', 3, 4, 240, 'El Mercedes-Benz Clase A es un coche compacto de lujo diseñado para ofrecer un alto nivel de comodidad y rendimiento.<br>Con un motor gasolina de 2.0 litros y cuatro cilindros, este coche ofrece un consumo de combustible de 6,5 litros cada 100 km, lo que lo hace adecuado para conductores que buscan un coche potente y eficiente.<br>El equipamiento incluye una pantalla táctil para el sistema de infoentretenimiento, cámara trasera, faros LED y tapicería de cuero para ofrecer una experiencia de conducción de lujo. Con un precio de 88.000€, el Mercedes-Benz Clase A es una opción atractiva para los conductores que buscan un coche compacto de lujo con un alto nivel de equipamiento.', 35, '2023-05-09'),
-(36, ' Nuevo Mercedes Clase C', 'Mercedes-Benz', 'Clase C', '43500.00', '798ab14de2e2d7b0fe543ac4e7ea1097.jpg', 5, 5, 190, 'El Mercedes es un coche compacto diseñado para ofrecer un alto nivel de eficiencia y comodidad.<br>Con un motor de gasolina de 1.5 litros y cuatro cilindros, este coche ofrece un consumo de combustible de 5,9 litros cada 100 km, lo que lo convierte en una opción atractiva para los conductores que buscan reducir sus costos de combustible.<br>El equipamiento incluye una pantalla táctil para el sistema de infoentretenimiento, climatizador automático bizona y cámara trasera para facilitar las maniobras en espacios reducidos.<br>Con un precio de 43.500€, el Seat León es una opción interesante para los conductores que buscan un coche compacto y eficiente con un equipamiento adecuado.', 36, '2023-05-09');
+(35, ' Nuevo Mercedes Clase A', 'Mercedes-Benz', 'Clase A', '88000.00', 'a71bca835f1be581728aa4a22db7788c.jpg', 3, 4, 240, 'El Mercedes-Benz Clase A es un coche compacto de lujo diseñado para ofrecer un alto nivel de comodidad y rendimiento.<br>Con un motor gasolina de 2.0 litros y cuatro cilindros, este coche ofrece un consumo de combustible de 6,5 litros cada 100 km, lo que lo hace adecuado para conductores que buscan un coche potente y eficiente.<br>El equipamiento incluye una pantalla táctil para el sistema de infoentretenimiento, cámara trasera, faros LED y tapicería de cuero para ofrecer una experiencia de conducción de lujo. Con un precio de 88.000€, el Mercedes-Benz Clase A es una opción atractiva para los conductores que buscan un coche compacto de lujo con un alto nivel de equipamiento.', 35, '2023-05-09');
 
 -- --------------------------------------------------------
 
@@ -124,6 +140,18 @@ CREATE TABLE `mecanicos` (
   `imagen` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Volcado de datos para la tabla `mecanicos`
+--
+
+INSERT INTO `mecanicos` (`id`, `nombre`, `apellido`, `puesto`, `telefono`, `imagen`) VALUES
+(17, ' Manuel', 'Martínez Rodríguez', 'Jefe de taller', '956563251', 'd13b2368e74c657b9dfb389160889cf7.jpg'),
+(18, ' Javier', 'García Moreno', 'Mecánico', '587569842', '5b917e7913edad4c0b5364de8fa1b474.jpg'),
+(19, ' Laura', 'Sánchez Rodríguez', 'Mecánica', '658652654', 'aaf516f69116bc133a123e56706e714d.jpg'),
+(20, ' Carmen', 'García Fernández', 'Mecánica', '754215365', '92fe0ac78d1ba067d00f0b9f9e7569f2.jpg'),
+(21, ' Paula', 'Torres García', 'Mecánica', '685693664', 'd52559169cd6085ba9021939edc1ac2b.jpg'),
+(22, ' Francisco', 'Jiménez García', 'Mecánico', '655451235', 'e04fee13e3a67c285e924fd38e685e49.jpg ');
+
 -- --------------------------------------------------------
 
 --
@@ -134,8 +162,29 @@ CREATE TABLE `servicios` (
   `id` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `precio` decimal(6,2) NOT NULL,
+  `descripcion` varchar(300) NOT NULL,
   `mecanicoId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `servicios`
+--
+
+INSERT INTO `servicios` (`id`, `nombre`, `precio`, `descripcion`, `mecanicoId`) VALUES
+(1, ' Cambio de aceite y filtro', '50.00', 'Servicio de mantenimiento esencial para el correcto funcionamiento del motor. Incluye la sustitución del aceite y el filtro de aceite', 17),
+(2, ' Cambio de la correa de distribución', '450.00', 'Servicio recomendado cada 100.000 kilómetros para evitar averías graves en el motor. Incluye la sustitución de la correa y la puesta a punto del sistema de distribución', 18),
+(3, ' Cambio de neumáticos', '425.00', 'Cambio de los cuatro neumáticos. Servicio indispensable para garantizar la seguridad en la carretera. Incluye la sustitución de los neumáticos desgastados y el equilibrado de las ruedas', 19),
+(4, ' Cambio de los frenos delanteros', '230.00', 'El precio es solo para el cambio de los frenos delanteros. Servicio importante para la seguridad en la conducción. Incluye la sustitución de las pastillas y/o discos de freno y el purgado del sistema', 20),
+(5, ' Cambio de frenos delanteros y traseros', '400.00', 'El precio es por el cambio de los 4 frenos. Servicio importante para la seguridad en la conducción. Incluye la sustitución de las pastillas y/o discos de freno y el purgado del sistema', 20),
+(6, ' Cambio de la batería', '85.00', 'Servicio para garantizar el correcto funcionamiento del sistema eléctrico del coche. Incluye la sustitución de la batería y la comprobación del alternador', 21),
+(7, ' Reparación del sistema de refrigeración', '175.00', 'Servicio necesario para evitar el sobrecalentamiento del motor. Incluye la reparación de fugas, la sustitución del líquido refrigerante y la comprobación del termostato', 22),
+(8, ' Diagnóstico informático de averías', '50.00', 'Servicio para detectar problemas mecánicos y electrónicos en el coche. Incluye la realización de pruebas y la lectura de códigos de error', 17),
+(9, ' Reparación del sistema de escape', '110.00', 'Servicio para garantizar el correcto funcionamiento del sistema de escape y reducir las emisiones contaminantes. Incluye la reparación de fugas y la sustitución de silenciadores o catalizadores', 18),
+(10, ' Cambio del líquido de frenos', '65.00', 'Servicio para garantizar un frenado eficaz y seguro. Incluye la sustitución del líquido de frenos y la purga del sistema', 19),
+(11, ' Cambio de los amortiguadores', '400.00', 'El precio incluye el cambio de los cuatro amortiguadores. Servicio para garantizar la estabilidad y el confort en la conducción. Incluye la sustitución de los amortiguadores y la comprobación del sistema de suspensión', 19),
+(12, ' Reparación del sistema de dirección', '215.00', 'Servicio para garantizar un manejo seguro y suave del coche. Incluye la reparación de fugas, la sustitución de piezas y la comprobación del sistema de dirección', 20),
+(13, ' Limpieza de los inyectores', '85.00', 'Servicio para garantizar un funcionamiento óptimo del motor y reducir el consumo de combustible. Incluye la limpieza de los inyectores y la comprobación del sistema de combustible', 21),
+(14, ' Reparación del sistema de aire acondicionado', '150.00', 'Servicio necesario para mejorar la climatización interior del vehículo. Incluye la reparación de fugas, la sustitución del gas refrigerante y la comprobación del climatizador', 22);
 
 -- --------------------------------------------------------
 
@@ -152,7 +201,7 @@ CREATE TABLE `usuarios` (
   `telefono` varchar(9) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `confirmado` tinyint(1) NOT NULL,
-  `token` varchar(15) NOT NULL
+  `token` char(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -160,7 +209,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `password`, `telefono`, `admin`, `confirmado`, `token`) VALUES
-(1, 'admin', 'admin', 'correo@correo.com', '$2y$10$koKz2BM2APvgfSpp7wgwyOnMJnM4H5vD0P5hc6edU35yWMau/J286', '', 1, 0, '');
+(1, 'admin', 'admin', 'correo@correo.com', '$2y$10$koKz2BM2APvgfSpp7wgwyOnMJnM4H5vD0P5hc6edU35yWMau/J286', '', 1, 1, ''),
+(11, ' raul', 'antelo', 'correo2@correo.com', '$2y$10$dNubaHCxI1/ISUqbK.A6n..FJ3y8ilumUCFGfVjQah4VNXKbPipiW', '421321546', 0, 1, ''),
+(12, ' Usuario', 'Sin Confirmar', 'correo3@correo.com', '$2y$10$vxXNjKdR0YiyiYQ0BtB9R.UBpXy1Ze.bPQ5PAdSFaV9qzPAl7nf/2', '546213879', 0, 0, '64626713b6fc1'),
+(15, ' usuario', 'cuatro', 'correo4@correo.com', '$2y$10$Ev5tztxosts48e7YrwoWguctIFrleAeP/7zK3eprg8SuwCFZ6zl5C', '695521251', 0, 1, '');
 
 -- --------------------------------------------------------
 
@@ -182,12 +234,12 @@ CREATE TABLE `vendedores` (
 --
 
 INSERT INTO `vendedores` (`id`, `nombre`, `apellido`, `puesto`, `telefono`, `imagen`) VALUES
-(33, ' Ana', 'Rodríguez Pérez', 'Jefa de Ventas', '851121245', '606f6378d95b6552077814fb6c72d704.jpg '),
-(34, ' Marta', 'Gómez Fernández', 'Vendedora', '844452126', '8023df3b19815d3547a1ebee2bc1c7ea.jpg '),
-(35, ' Carlos', 'López García', 'Vendedor', '844556569', '42320d314424c1868df2fa4cd6ffe9c8.jpg '),
-(36, ' David', 'Martínez Jiménez', 'Vendedor', '852863841', 'b2ecadc007bc236e71c6862ebb5f9b4d.jpg '),
-(37, ' Ana Belén', 'Pérez Díaz', 'Vendedora', '574698325', 'e786c5e12dcf12791e50c3d9b1cfef36.jpg '),
-(38, ' Sergio', 'Pérez Fernández', 'Vendedor', '852252325', 'c0dbfce8db02409a810f03e15cf99083.jpg ');
+(33, ' Ana', 'Rodríguez Pérez', 'Jefa de Ventas', '851121245', '70a225b1ec23967f563c7bc06ee3079c.jpg'),
+(34, ' Marta', 'Gómez Fernández', 'Vendedora', '844452126', '7ff0d90998586d73be2788b9bce827c9.jpg'),
+(35, ' Carlos', 'López García', 'Vendedor', '844556569', 'f041f046ae3598fc8bdc9149521379c1.jpg'),
+(36, ' David', 'Martínez Jiménez', 'Vendedor', '852863841', 'bfb8ef0a4b66949a06b3be0d27ae7b94.jpg'),
+(37, ' Ana Belén', 'Pérez Díaz', 'Vendedora', '574698325', '30e197dc5f9a54637847c9e785e878b3.jpg'),
+(38, ' Sergio', 'Pérez Fernández', 'Vendedor', '852252325', '1f5280905295e57d985a7ae9669f70dc.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -261,13 +313,13 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `citasservicios`
 --
 ALTER TABLE `citasservicios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `coches`
@@ -279,19 +331,19 @@ ALTER TABLE `coches`
 -- AUTO_INCREMENT de la tabla `mecanicos`
 --
 ALTER TABLE `mecanicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedores`

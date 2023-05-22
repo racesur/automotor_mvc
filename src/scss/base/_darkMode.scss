@@ -29,9 +29,6 @@
 
     }
 
-
-
-
     .texto-nosotros blockquote {
         color: $blanco;
     }
@@ -75,4 +72,12 @@
         }
     }
 
+    //Administración de Citas
+    #citas-admin p {
+        color: $gris;
+
+        span {
+            color: $blanco;
+        }
+    }
 }
